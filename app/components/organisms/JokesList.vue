@@ -151,7 +151,7 @@
         <UPagination
           v-model:page="paginationConfig.page"
           :items-per-page="paginationConfig.perPage"
-          :total="totalPages"
+          :total="sortedData.length"
           active-variant="soft"
           variant="soft"
         />
@@ -218,7 +218,7 @@
         <UPagination
           v-model:page="paginationConfig.page"
           :items-per-page="paginationConfig.perPage"
-          :total="totalPages"
+          :total="sortedData.length"
           active-variant="soft"
           variant="soft"
         />
@@ -336,7 +336,7 @@ const paginationConfig = ref({
   perPage: 10,
 })
 
-const { paginatedData, totalPages, resultsCountText } = usePagination<Joke>({
+const { paginatedData, resultsCountText } = usePagination<Joke>({
   data: sortedData,
   config: paginationConfig,
 })
