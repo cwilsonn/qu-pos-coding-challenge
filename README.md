@@ -4,7 +4,7 @@
 
 This project is a frontend coding challenge for Qu POS built using Nuxt 3, along with `@nuxt/ui` and associated libraries.
 
-The primary goal was to build a UI that requests and displays a list of jokes, including sorting and pagination functionality. I’ve gone beyond the base requirement to showcase frontend architecture and thoughtful UX with the following enhancements:
+The primary goal was to build a UI that requests and displays a list of jokes, including sorting and pagination functionality. I've gone beyond the base requirement to showcase frontend architecture and thoughtful UX with the following enhancements:
 
 - 🔍 **Keyword search** across joke properties
 - 🗂️ **Sorting controls** by property and order (ascending/descending)
@@ -14,8 +14,9 @@ The primary goal was to build a UI that requests and displays a list of jokes, i
 - 🌘 **Dark/light theme toggle** — because we all know developers love a good dark mode
 - 🌀 **Staggered list animations** via `@vueuse/motion`
 - 🙊 **Optional punchline hiding** to avoid spoilers while browsing
+- 📝 **Full CRUD support** including create, update, and delete — all with schema-based validation, reactive updates, and modal dialogs powered by `@nuxt/ui`
 
-These additions were implemented with performance and reusability in mind, using pre-existing composables I’ve authored and generalized for cross-project use.
+These additions were implemented with performance and reusability in mind, using pre-existing composables I've authored and generalized for cross-project use.
 
 ## Architecture notes
 
@@ -25,7 +26,7 @@ I deliberately chose `@nuxt/ui` to reduce boilerplate around styling and layout,
 
 ### Backend-for-Frontend (BFF)
 
-The backend layer leverages Nuxt’s server API (Nitro) and uses the **repository pattern** to cleanly separate concerns between request handling and data logic. API routes are versioned (`/api/v1`) to mirror best practices in production-scale systems.
+The backend layer leverages Nuxt's server API (Nitro) and uses the **repository pattern** to cleanly separate concerns between request handling and data logic. API routes are versioned (`/api/v1`) to mirror best practices in production-scale systems.
 
 ### Frontend Patterns
 
@@ -33,6 +34,7 @@ The backend layer leverages Nuxt’s server API (Nitro) and uses the **repositor
 - 🔄 **Composables** encapsulate reusable reactive logic and orchestration (e.g., `useSort`, `useSearch`, `usePagination`, `useJokes`)
 - 🧠 **Services** handles request and business logic
 - 🎨 **Components** are structured by atomic design principles for clarity and reuse
+- 🧱 **CRUD modals** leverage `@nuxt/ui`'s built-in `useOverlay()` for clean UX and separation of concerns
 
 These patterns are modular, testable, and easily extendable in a real-world application.
 
